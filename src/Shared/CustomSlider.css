@@ -1,0 +1,34 @@
+/* CustomSlider.css */
+.custom-slider {
+  position: relative;
+  overflow: hidden;
+  width: 400px; /* Adjust the width as needed */
+  margin: 0 auto;
+  height: 400px;
+}
+
+.slider-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-image.center {
+  z-index: 2;
+  transform: scale(1.5);
+}
+
+.slider-image:nth-child(1),
+.slider-image:nth-child(3) {
+  z-index: 1;
+  transform: scale(0.8);
+}
+
+.slider-image:nth-child(1) {
+  transform: translateX(-50%) scale(0.8);
+}
+
+.slider-image:nth-child(3) {
+  transform: translateX(50%) scale(0.8);
+}

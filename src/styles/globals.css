@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Fant */
+* {
+  font-family: "Poppins" !important;
+}
+
+/* Carousel Customize code */
+.anticon-right {
+  background-color: black;
+  color: white !important;
+  padding: 3px !important;
+  border-radius: 50%;
+}
+.anticon-left {
+  background-color: black;
+  color: white !important;
+  padding: 3px !important;
+  border-radius: 50%;
+}
+.ant-pagination-disabled .anticon-right {
+  background-color: lightgray !important;
+}
+.ant-pagination-disabled .anticon-left {
+  background-color: lightgray !important;
+}
+
+.ant-pagination-item {
+  color: lightgray;
+  min-width: 20px !important;
+  text-align: unset !important;
+  /* vertical-align: unset !important; */
+  height: unset !important;
+  margin-inline-end: 0px !important;
+}
+.ant-pagination-item-active {
+  border-color: white !important;
+  color: black;
+  background-color: transparent !important;
+  border: 0px !important;
+}
+
+/* Custom Scroll bar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: black;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: gray;
+}
+
+.custom-scrollbar-content {
+  padding-right: 20px;
+  overflow-y: scroll;
+  height: 90%;
+}
+.custom-scrollbar-2 {
+  scrollbar-width: thin;
+  scrollbar-color: black;
+}
+
+.custom-scrollbar-2::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar-2::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.custom-scrollbar-2::-webkit-scrollbar-track {
+  background-color: gray;
+}
