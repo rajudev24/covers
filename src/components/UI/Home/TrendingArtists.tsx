@@ -3,7 +3,7 @@ import React from "react";
 
 export default function TrendingArtists() {
   return (
-    <div className="flex justify-between  bg-primary p-8">
+    <div className="md:flex justify-between  bg-primary p-8">
       <div>
         <div>
           <h1 className="text-3xl font-semibold text-white">

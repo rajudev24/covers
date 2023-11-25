@@ -29,7 +29,6 @@ export default function CategoryAndArtistCard({
           loading="lazy"
           className="rounded-xl"
         />
-
         <h1 className="text-lg font-semibold">{title} </h1>
       </div>
     </div>

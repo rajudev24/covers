@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CustomPagination } from "../../Shared/CustomPagination";
- 
+
 export default function CategorySection({ sectionTitle }) {
   const [current, setCurrent] = useState(1);
   const onChange = (page) => {
@@ -10,7 +10,7 @@ export default function CategorySection({ sectionTitle }) {
   };
   return (
     <div className="bg-primary py-16 text-white mt-4">
-      <div className="flex justify-between mx-8 ">
+      <div className="md:flex justify-between mx-8 ">
         <h1 className="text-3xl font-semibold "> {sectionTitle} </h1>
 
         <CustomPagination current={current} onChange={onChange} total={40} />
