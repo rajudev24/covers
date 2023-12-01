@@ -1,19 +1,30 @@
-import ArtistProfile from "../../components/UI/ArtistDetails/ArtistProfile";
-import SocialMedia from "../../components/SocialMedia/SocialMedia";
-import Tags from "../../components/Tags/Tags";
-import Playlist from "../../components/Playlist/Playlist";
-import TrendingArtists from "../../components/UI/Home/TrendingArtists";
-import CategorySection from "../../components/Core/CategorySection";
-import ArtistWeek from "../../components/UI/ArtistDetails/ArtistWeek";
+import dynamic from "next/dynamic";
+const ArtistProfile = dynamic(
+  () => import("../../components/UI/ArtistDetails/ArtistProfile")
+);
+const SocialMedia = dynamic(
+  () => import("../../components/SocialMedia/SocialMedia")
+);
+const Tags = dynamic(() => import("../../components/Tags/Tags"));
+const Playlist = dynamic(() => import("../../components/Playlist/Playlist"));
+const TrendingArtists = dynamic(
+  () => import("../../components/UI/Home/TrendingArtists")
+);
+const CategorySection = dynamic(
+  () => import("../../components/Core/CategorySection")
+);
+const ArtistWeek = dynamic(
+  () => import("../../components/UI/ArtistDetails/ArtistWeek")
+);
 
 export default function ArtistDetails({ artistDetails }) {
   return (
     <>
-      <div className="md:flex m-4 justify-between items-center">
-        <div className="md:w-3/4 md:mr-2">
+      <div className="lg:flex m-4 justify-between items-center ">
+        <div className="w-full lg:w-3/4 md:mr-2 ">
           <ArtistProfile />
         </div>
-        <div>
+        <div className="">
           <SocialMedia />
           <Tags />
         </div>

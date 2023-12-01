@@ -28,7 +28,7 @@ export default function VideoArtistCard({
           width={width}
           height={height}
           loading="lazy"
-          className="rounded-xl"
+          className="rounded-xl w-full"
         />
         <div className="mt-2">
           <h1 className="text-lg font-bold text-black">{categoryTitle} </h1>

@@ -10,18 +10,19 @@ export default function ArtistWeek() {
   };
   return (
     <div className="mx-8 my-8">
-      <div className="flex justify-between mb-12 ">
-        <h1 className="text-3xl font-semibold ">Artist of the Week</h1>
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-12">
+        <h1 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-0">
+          Artist of the Week
+        </h1>
 
         <CustomPagination current={current} onChange={onChange} total={40} />
       </div>
 
-      <div className="grid grid-cols-4 max-sm:grid-cols-2 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
         {Array.from({ length: 4 }).map((_, index) => (
           <div key={index} className="flex w-36">
-            <span className="text-[270px] text-[#AD241B] -my-[100px] ">
-              {" "}
-              {index + 2}{" "}
+            <span className="text-[270px] text-primary -my-[100px] ">
+              {index + 2}
             </span>
             <Image
               src={"/img/artist-p.png"}

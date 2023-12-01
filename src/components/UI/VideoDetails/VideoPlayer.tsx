@@ -3,20 +3,20 @@ import { GrFormView } from "react-icons/gr";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { Button } from "antd";
+import "node_modules/video-react/dist/video-react.css";
+import { Player, BigPlayButton, LoadingSpinner } from "video-react";
 
 export default function VideoPlayer() {
   return (
     <div className="w-3/4 p-2 max-sm:w-full">
       <div>
-        <iframe
-          width="700"
-          height="400"
-          src="https://www.youtube.com/embed/4wtrl4hnPT8"
-          title="LLM Project | End to end LLM project Using Langchain, Google Palm in Retail Industry"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+        <Player
+          poster="/img/artist.jpg"
+          src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        >
+          <BigPlayButton position="center" />
+          <LoadingSpinner />
+        </Player>
         <div className="md:flex justify-between mt-4 ">
           <div>
             <h1 className="text-xl font-semibold">Thunder Stunt</h1>

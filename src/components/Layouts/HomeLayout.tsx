@@ -58,7 +58,6 @@ const HomeLayout = ({ children }) => {
             <Menu
               theme="light"
               mode="inline"
-              defaultSelectedKeys={["1"]}
               items={[
                 {
                   type: "item",
@@ -80,11 +79,11 @@ const HomeLayout = ({ children }) => {
         />
         <Content
           style={{
-            margin: "20px 16px",
+            overflow: "hidden",
             padding: 0,
             minHeight: "100vh",
             background: colorBgContainer,
-            marginLeft: `${isMobile ? "0" : collapsed ? "7%" : "12%"}`,
+            marginLeft: `${isMobile ? "0" : collapsed ? "6%" : "11%"}`,
             transitionDuration: "0.3s",
           }}
         >
@@ -92,7 +91,7 @@ const HomeLayout = ({ children }) => {
         </Content>
         <Footer
           style={{
-            marginLeft: `${isMobile ? "0" : collapsed ? "5.5%" : "11%"}`,
+            marginLeft: `${isMobile ? "0" : collapsed ? "6%" : "11%"}`,
             transitionDuration: "0.3s",
             padding: "0",
           }}

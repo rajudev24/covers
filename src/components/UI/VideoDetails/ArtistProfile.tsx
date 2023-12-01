@@ -4,7 +4,7 @@ import React from "react";
 
 export default function ArtistProfile() {
   return (
-    <div className=" h-fit border-2 p-8 text-center rounded-lg border-slate-800 m-4">
+    <div className="w-[33%] h-fit border-2 p-6 text-center rounded-lg border-slate-800 m-4">
       <Image
         src={"/img/artist.jpg"}
         alt="artist image"

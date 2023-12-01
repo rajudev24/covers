@@ -1,8 +1,13 @@
 import { useState } from "react";
-import FilterBar from "../../components/Filters/Filter";
-import AllArtists from "../../components/UI/ArtistDetails/AllArtists";
+import dynamic from "next/dynamic";
+const FilterBar = dynamic(() => import("../../components/Filters/Filter"));
+const AllArtists = dynamic(
+  () => import("../../components/UI/ArtistDetails/AllArtists")
+);
+const PhoneFilter = dynamic(
+  () => import("../../components/Filters/PhoneFilter")
+);
 import useMobileDetection from "../../utils/phoneSizeDetect";
-import PhoneFilter from "../../components/Filters/PhoneFilter";
 import { LuSettings2 } from "react-icons/lu";
 
 export default function ArtistsPage() {
@@ -12,7 +17,6 @@ export default function ArtistsPage() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const isMobile = useMobileDetection();
 
-  console.log(isModalOpen);
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -31,7 +35,7 @@ export default function ArtistsPage() {
   return (
     <div className="m-4 max-sm:m-2">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold">All Categories</h1>
+        <h1 className="text-2xl font-semibold">All Artists</h1>
         {isMobile ? (
           <button onClick={showModal}>
             <LuSettings2 size={28} />

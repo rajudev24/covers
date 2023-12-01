@@ -16,7 +16,6 @@ export default function VideoDetails() {
         <MoreArtists />
         <Playlist />
       </div>
-
       <RecomendedArtists />
       <SubscribeFrom />
     </div>

@@ -1,4 +1,3 @@
-"use client";
 import { SubmitHandler } from "react-hook-form";
 import { Button, Col, Row } from "antd";
 import Image from "next/image";
@@ -14,15 +13,18 @@ type FromValues = {
   email: string;
   password: string;
 };
+
 export default function login() {
   const onSubmit: SubmitHandler<FromValues> = (data) => {
     try {
       console.log(data);
     } catch (err) {}
   };
+
   const onChange = (e: CheckboxChangeEvent) => {
     console.log(`checked = ${e.target.checked}`);
   };
+
   return (
     <Row
       justify="center"
@@ -31,8 +33,8 @@ export default function login() {
         minHeight: "100vh",
       }}
     >
-      <Col sm={12} md={8} lg={14}>
-        <div className="mx-20 max-sm:m-4">
+      <Col xs={24} sm={18} md={16} lg={10} xl={14} xxl={10}>
+        <div className="mx-4 md:mx-20">
           <h1 className="text-4xl font-bold text-primary">LOGO</h1>
           <h1 className="text-3xl font-semibold">
             Welcome <span className="text-primary">Back</span>{" "}
@@ -46,7 +48,7 @@ export default function login() {
                 size="large"
                 label="Email address"
                 placeholder="Enter your email"
-              ></FormInput>
+              />
               <div className="my-4">
                 <FormInput
                   name="password"
@@ -54,7 +56,7 @@ export default function login() {
                   size="large"
                   label="Password"
                   placeholder="Enter your password"
-                ></FormInput>
+                />
               </div>
             </div>
             <Checkbox onChange={onChange}>Remember for 30 days</Checkbox>
@@ -65,12 +67,12 @@ export default function login() {
               Login
             </button>
           </Form>
-          <div className="flex justify-between items-center my-4 ">
-            <button className="flex  items-center p-1 px-4 border-2 rounded-xl">
+          <div className="flex flex-col md:flex-row justify-between items-center my-4">
+            <button className="flex items-center p-1 px-4 border-2 rounded-xl mb-2 md:mb-0">
               {" "}
               <FcGoogle size={24} /> Sign In with Google
             </button>
-            <button className="flex  items-center p-1  px-6 border-2 rounded-xl">
+            <button className="flex items-center p-1 px-6 border-2 rounded-xl">
               {" "}
               <FaApple size={24} /> Sign In with Apple
             </button>
@@ -81,12 +83,12 @@ export default function login() {
           </span>
         </div>
       </Col>
-      <Col sm={12} md={16} lg={10} className="mt-2">
+      <Col xs={24} sm={16} md={8} lg={10} xl={10} xxl={14} className="mt-2">
         <Image
           src={"/img/login.png"}
           alt="login image"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           loading="lazy"
         />
       </Col>

@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Playlist() {
   return (
-    <div className="md:w-2/5 m-2">
-      <div className=" h-96 border-2 p-4 rounded-xl border-slate-800 md:-mt-96 overflow-y-auto custom-scrollbar">
+    <div className="md:w-[45%] mx-4">
+      <div className=" h-96 border-2 p-4 rounded-xl border-slate-800 md:-mt-[400px] overflow-y-auto custom-scrollbar">
         <div className="flex justify-between ">
           <h1 className="text-xl font-semibold">Playlist</h1>
           <h1>12 Videos</h1>

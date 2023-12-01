@@ -55,14 +55,13 @@ const treeData: DataNode[] = [
     ],
   },
 ];
-export default function PhoneFilter({ isModalOpen, setIsModalOpen }) {
+
+export default function DesktopFIlter() {
   const [showLine, setShowLine] = useState<boolean>(true);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean | React.ReactNode>(
     false
   );
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+
   const onChange = (checkedValues: string[]) => {
     console.log("Checked values:", checkedValues);
   };
@@ -82,63 +81,56 @@ export default function PhoneFilter({ isModalOpen, setIsModalOpen }) {
   const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log("selected", selectedKeys, info);
   };
-
   return (
-    <div className="bg-primary">
-      <Modal
-        open={isModalOpen}
-        onCancel={handleCancel}
-        footer={null}
-        bodyStyle={{ maxHeight: "calc(80vh - 20px)", overflowY: "auto" }}
-      >
-        <div style={{ maxHeight: "100%" }}>
-          <h1 className="text-xl">By Category</h1>
-          <Checkbox.Group
-            onChange={onChange}
-            defaultValue={[]}
-            className="flex flex-col "
-          >
-            {options.map((option) => (
-              <Checkbox
-                style={{
-                  color: "white",
-                  fontSize: "20px",
-                }}
-                key={option}
-                value={option}
-              >
-                {option}
-              </Checkbox>
-            ))}
-          </Checkbox.Group>
-
-          <div className="my-4">
-            <h1 className="text-xl">Editor Picks</h1>
-            <Search
-              placeholder="Search title"
-              onSearch={onSearch}
+    <div>
+      <div className="bg-primary rounded-xl p-2">
+        <h1 className="text-xl text-white ">By Category</h1>
+        <Checkbox.Group
+          onChange={onChange}
+          defaultValue={[]}
+          className="flex flex-col "
+        >
+          {options.map((option) => (
+            <Checkbox
               style={{
-                width: 250,
-              }}
-            />
-          </div>
-
-          <div>
-            <Tree
-              showLine={showLine ? { showLeafIcon } : false}
-              defaultExpandedKeys={["0-0-0"]}
-              onSelect={onSelect}
-              treeData={treeData}
-              style={{
-                backgroundColor: "#AD241B",
                 color: "white",
-                fontSize: "20px",
-                border: "0px",
+                fontSize: "14px",
+                padding: "2px",
               }}
-            />
-          </div>
+              key={option}
+              value={option}
+            >
+              {option}
+            </Checkbox>
+          ))}
+        </Checkbox.Group>
+      </div>
+      <div className="bg-primary p-2 rounded-xl mt-2">
+        <div className="my-4">
+          <h1 className="text-xl text-white">Editor Picks</h1>
+          <Search
+            placeholder="Search title"
+            onSearch={onSearch}
+            style={{
+              width: 220,
+            }}
+          />
         </div>
-      </Modal>
+        <div>
+          <Tree
+            showLine={showLine ? { showLeafIcon } : false}
+            defaultExpandedKeys={["0-0-0"]}
+            onSelect={onSelect}
+            treeData={treeData}
+            style={{
+              backgroundColor: "#AD241B",
+              color: "white",
+              fontSize: "15px",
+              border: "0px",
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }

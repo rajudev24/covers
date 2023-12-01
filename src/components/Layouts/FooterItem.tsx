@@ -13,7 +13,7 @@ import { PiLinkFill } from "react-icons/pi";
 export default function FooterItem() {
   return (
     <div>
-      <div className="md:flex justify-between bg-[#AD241B] py-12 text-white px-6 ">
+      <div className="md:flex justify-between bg-primary py-12 text-white px-8 ">
         <div className="md:w-96 text-justify">
           <h1 className="text-xl font-semibold">Logo</h1>
           <p>
@@ -22,7 +22,7 @@ export default function FooterItem() {
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco.{" "}
           </p>
-          <span>Follow Us</span>
+          <span className="py-2 text-base">Follow Us</span>
           <div className="flex justify-between mt-2">
             <FaFacebook size={30} color="#FFFFFF" />
             <FaYoutube size={30} color="#FFFFFF" />

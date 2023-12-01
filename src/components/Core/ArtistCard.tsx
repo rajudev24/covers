@@ -20,21 +20,26 @@ export default function ArtistCard({
   return (
     <div
       key={key}
-      className="mt-2 md:flex  text-left border-2 p-2 border-gray-500 rounded-xl"
+      className="mt-2 md:flex text-left border-2 p-2 border-gray-500 rounded-xl"
     >
-      <Image
-        src={url}
-        alt={altTag}
-        width={width}
-        height={height}
-        loading="lazy"
-        className="rounded-xl"
-      />
-      <div className="md:ml-4 mt-2">
-        <span className="text-xs font-semibold bg-primary text-white p-1 rounded-2xl">
+      <div className="md:w-1/3 md:mr-4">
+        <Image
+          src={url}
+          alt={altTag}
+          width={width}
+          height={height}
+          loading="lazy"
+          className="rounded-xl w-full"
+        />
+      </div>
+
+      <div className="md:w-2/3 mt-2">
+        <span className="text-xs md:text-sm font-semibold bg-primary text-white p-1  px-3 rounded-2xl whitespace-nowrap">
           {categoryTitle}
         </span>
-        <h4 className="text-base font-bold mt-2"> {artistName} </h4>
+        <h4 className="text-base md:text-lg font-bold mt-2 whitespace-nowrap">
+          {artistName}
+        </h4>
       </div>
     </div>
   );
