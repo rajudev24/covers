@@ -23,7 +23,7 @@ const TrendingArtists = dynamic(
 
 const apiBaseUrl = process.env.API_BASE_URL;
 
-export default function HomePage({ topArtist, AllCategories, AllVideo }) {
+export default function HomePage({ topArtist, AllCategories }) {
   return (
     <>
       <Head>
