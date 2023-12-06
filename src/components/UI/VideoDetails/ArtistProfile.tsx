@@ -4,14 +4,14 @@ import React from "react";
 
 export default function ArtistProfile() {
   return (
-    <div className="w-[33%] h-fit border-2 p-6 text-center rounded-lg border-slate-800 m-4">
+    <div className="lg:w-[33%] h-fit border-2 p-6 text-center rounded-lg border-slate-800 m-4">
       <Image
         src={"/img/artist.jpg"}
         alt="artist image"
         width={300}
         height={300}
         loading="lazy"
-        className="rounded-lg"
+        className="rounded-lg w-full"
       />
       <h1 className="text-4xl font-extrabold mt-2">ARTIST NAME</h1>
       <div className="flex justify-between mt-2 -mb-4">

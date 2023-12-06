@@ -9,7 +9,7 @@ const FilterBar = ({
   isMobile,
 }) => {
   return (
-    <div className="flex items-center justify-between p-4 bg-primary text-white rounded-xl  ">
+    <div className="flex items-center justify-between p-4 bg-primary text-white rounded-xl m-2 ">
       <div className="flex space-x-4 items-center ">
         Category Title
         <div className="flex flex-col ml-3">

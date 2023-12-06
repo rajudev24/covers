@@ -9,7 +9,7 @@ import FooterItem from "./FooterItem";
 import useMobileDetection from "../../utils/phoneSizeDetect";
 const { Sider, Content, Footer } = Layout;
 
-const HomeLayout = ({ children }) => {
+const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const isMobile = useMobileDetection();

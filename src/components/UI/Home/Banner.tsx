@@ -45,7 +45,7 @@ export default function Banner() {
           </Button>
         </div>
       </div>
-      <div className="w-1/2 mr-8">
+      {/* <div className="w-1/2 mr-8">
         <Slider {...settings}>
           <div>
             <Image
@@ -109,7 +109,7 @@ export default function Banner() {
             />
           </div>
         </Slider>
-      </div>
+      </div> */}
     </div>
   );
 }

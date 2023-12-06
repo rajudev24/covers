@@ -34,7 +34,7 @@ export default function ArtistsPage() {
   };
   return (
     <div className="m-4 max-sm:m-2">
-      <div className="flex justify-between">
+      <div className="flex justify-between my-4 mx-2">
         <h1 className="text-2xl font-semibold">All Artists</h1>
         {isMobile ? (
           <button onClick={showModal}>

@@ -12,7 +12,7 @@ export default function PopularVideos() {
 
   return (
     <div className="bg-primary py-8 md:py-16 text-white mt-4">
-      <div className="flex flex-col md:flex-row justify-between mx-4 md:mx-8">
+      <div className="flex flex-col md:flex-row justify-between mx-4 md:mx-8 items-center">
         <h1 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-0">
           Popular Videos
         </h1>

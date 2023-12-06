@@ -29,8 +29,8 @@ export default function Categories() {
 
   return (
     <div className="m-4 max-sm:m-2">
-      <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold">All Categories</h1>
+      <div className="flex justify-between my-4 mx-2">
+        <h1 className="text-2xl font-semibold ">All Categories</h1>
         {isMobile ? (
           <button onClick={showModal}>
             <LuSettings2 size={28} />

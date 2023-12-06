@@ -15,7 +15,12 @@ export default function ArtistWeek() {
           Artist of the Week
         </h1>
 
-        <CustomPagination current={current} onChange={onChange} total={40} />
+        <CustomPagination
+          current={current}
+          onChange={onChange}
+          total={40}
+          isRedBackground={false}
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
