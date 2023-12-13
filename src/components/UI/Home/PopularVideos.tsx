@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { CustomPagination } from "../../../Shared/CustomPagination";
+import useMobileDetection from "../../../utils/phoneSizeDetect";
+import { useVideosQuery } from "../../../redux/api/videoApi";
 
 export default function PopularVideos() {
-  const [current, setCurrent] = useState<number>(1);
+  const isMobile = useMobileDetection();
+  const query: Record<string, any> = {};
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(6);
+  query["pageSize"] = size;
+  query["pageNo"] = page;
+  const { data, isLoading } = useVideosQuery({ ...query });
 
   const onChange = (page: number) => {
-    console.log(page);
-    setCurrent(page);
+    setPage(page);
   };
 
   return (
@@ -18,33 +25,38 @@ export default function PopularVideos() {
         </h1>
 
         <CustomPagination
-          current={current}
+          current={page}
           onChange={onChange}
           total={40}
           isRedBackground={true}
         />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-8 mx-4 md:mx-8 mt-4 gap-y-4 justify-items-center">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div key={index} className=" ">
-            <Image
-              src={"/img/artist.jpg"}
-              alt="artist image"
-              width={150}
-              height={100}
-              loading="lazy"
-              className="rounded-xl w-full"
-            />
-            <div className="mt-2">
-              <h1 className="text-base md:text-lg lg:text-xl font-bold text-white">
-                THDST-S1EP1
-              </h1>
-              <p className="text-slate-400 font-semibold text-base md:text-lg">
-                DRAMA
-              </p>
-            </div>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-6 mx-4 md:mx-8 mt-4 gap-y-4 justify-items-center">
+        {data &&
+          data.data?.map((video: any, index: number) => {
+            let artistName = JSON.parse(video?.artist);
+            const truncatedTitle = video?.title?.slice(0, 30);
+            return (
+              <div key={index} className=" ">
+                <Image
+                  src={video?.standard_img}
+                  alt="artist image"
+                  width={250}
+                  height={250}
+                  loading="lazy"
+                  className="rounded-xl w-full"
+                />
+                <div className="mt-2">
+                  <h1 className="text-base md:text-lg lg:text-xl font-bold text-white">
+                    {truncatedTitle}
+                  </h1>
+                  <p className="text-slate-400 font-semibold text-base md:text-lg">
+                    {artistName?.artist_name}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

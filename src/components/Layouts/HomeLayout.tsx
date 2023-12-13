@@ -55,17 +55,11 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
           width={150}
         >
           <div>
-            <Menu
-              theme="light"
-              mode="inline"
-              items={[
-                {
-                  type: "item",
-                  icon: <MdViewInAr />,
-                  label: <Link href="/">Viewer</Link>,
-                },
-              ]}
-            />
+            <Menu theme="light" mode="inline">
+              <Menu.Item icon={<MdViewInAr />}>
+                <Link href="/">Covers</Link>
+              </Menu.Item>
+            </Menu>
           </div>
 
           <MenuItem />

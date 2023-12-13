@@ -1,10 +1,19 @@
-import React from "react";
-import { Flex, Spin } from "antd";
+import { Row, Space, Spin } from "antd";
 
-export default function loading() {
+const Loading = () => {
   return (
-    <Flex align="center" gap="middle">
-      <Spin size="large" />
-    </Flex>
+    <Row
+      justify="center"
+      align="middle"
+      style={{
+        height: "100vh",
+      }}
+    >
+      <Space>
+        <Spin tip="Loading" size="large"></Spin>
+      </Space>
+    </Row>
   );
-}
+};
+
+export default Loading;

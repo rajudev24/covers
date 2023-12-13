@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { CustomPagination } from "../../../Shared/CustomPagination";
 import VideoArtistCard from "../../Core/VideoArtistCard";
 import useMobileDetection from "../../../utils/phoneSizeDetect";
+import { useVideosQuery } from "../../../redux/api/videoApi";
 
 export default function TrendingVideos() {
   const isMobile = useMobileDetection();
-  const [current, setCurrent] = useState<number>(1);
+  const query: Record<string, any> = {};
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(5);
+  query["pageSize"] = size;
+  query["pageNo"] = page;
+  const { data, isLoading } = useVideosQuery({ ...query });
 
   const onChange = (page: number) => {
-    console.log(page);
-    setCurrent(page);
+    setPage(page);
   };
 
   return (
@@ -27,30 +32,37 @@ export default function TrendingVideos() {
 
         {isMobile ? null : (
           <CustomPagination
-            current={current}
+            current={page}
             onChange={onChange}
             total={40}
             isRedBackground={true}
           />
         )}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-4 md:mx-8 mt-6 gap-6 lg:gap-8 justify-items-center max-sm:gap-2">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <VideoArtistCard
-            key={index}
-            url={"/img/artist.jpg"}
-            width={180}
-            height={150}
-            categoryTitle={"THDST-S1EP1"}
-            artistName={"Oliver Jons"}
-            altTag={"Artist image"}
-          />
-        ))}
+
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-4 md:mx-8 mt-6 gap-6 lg:gap-6 justify-items-center max-sm:gap-2">
+        {data &&
+          data.data?.map((video: any, index: number) => {
+            let artistName = JSON.parse(video?.artist);
+            const truncatedTitle = video?.title?.slice(0, 35);
+            return (
+              <VideoArtistCard
+                key={index}
+                url={video?.standard_img}
+                width={250}
+                height={250}
+                categoryTitle={truncatedTitle}
+                artistName={artistName?.artist_name}
+                altTag={"Artist image"}
+              />
+            );
+          })}
       </div>
+
       <div className="text-center mt-4">
         {isMobile ? (
           <CustomPagination
-            current={current}
+            current={page}
             onChange={onChange}
             total={40}
             isRedBackground={true}

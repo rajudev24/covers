@@ -77,7 +77,12 @@ export default function SearchPage() {
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center mt-4">
           <h1 className="mb-2 md:mb-0">Showing 10 from 10 Data</h1>
-          <CustomPagination current={current} onChange={onChange} total={40} />
+          <CustomPagination
+            current={current}
+            onChange={onChange}
+            total={40}
+            isRedBackground={true}
+          />
         </div>
         {isModalOpen ? (
           <PhoneFilter

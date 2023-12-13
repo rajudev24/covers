@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 interface IProps {
+  key: number;
   url: string;
   altTag: string;
   width: number;
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 export default function VideosCard({
+  key,
   url,
   altTag,
   width,
@@ -20,7 +22,10 @@ export default function VideosCard({
   description,
 }: IProps) {
   return (
-    <div className="lg:flex border border-slate-950 rounded-xl p-2 mb-4 md:mb-0">
+    <div
+      key={key}
+      className="lg:flex border border-slate-950 rounded-xl p-2 mb-4 md:mb-0"
+    >
       <div className="relative ">
         <Image
           src={url}

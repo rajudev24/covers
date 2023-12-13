@@ -12,7 +12,12 @@ export default function RecomendedArtists() {
     <div className="bg-[#AD241B] py-16 text-white mt-4">
       <div className="flex justify-between mx-8 items-center">
         <h1 className="text-lg ">Recomended For You</h1>
-        <CustomPagination current={current} onChange={onChange} total={40} />
+        <CustomPagination
+          current={current}
+          onChange={onChange}
+          total={40}
+          isRedBackground={true}
+        />
       </div>
       <div className="grid grid-cols-6 max-sm:grid-cols-2 mx-8 mt-8 gap-2">
         {Array.from({ length: 6 }).map((_, index) => (

@@ -21,9 +21,7 @@ const TrendingArtists = dynamic(
   () => import("../components/UI/Home/TrendingArtists")
 );
 
-const apiBaseUrl = process.env.API_BASE_URL;
-
-export default function HomePage({ topArtist, AllCategories }) {
+export default function HomePage() {
   return (
     <>
       <Head>
@@ -43,39 +41,3 @@ export default function HomePage({ topArtist, AllCategories }) {
     </>
   );
 }
-
-export const getServerSideProps = async () => {
-  try {
-    const artistRes = await fetch(
-      `${apiBaseUrl}/show-all-artists?pageNo=1&itemPerPage=1`
-    );
-    const artistData = await artistRes.json();
-
-    const categoryRes = await fetch(
-      `${apiBaseUrl}/get-categories?pageNo=1&itemPerPage=1`
-    );
-    const categoryData = await categoryRes.json();
-
-    const videosRes = await fetch(
-      `${apiBaseUrl}/get-all-videos?pageSize=1&pageNo=1`
-    );
-    const videosData = await videosRes.json();
-
-    return {
-      props: {
-        topArtist: artistData,
-        AllCategories: categoryData,
-        AllVideo: videosData,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return {
-      props: {
-        topArtist: null,
-        AllCategories: null,
-        AllVideo: null,
-      },
-    };
-  }
-};

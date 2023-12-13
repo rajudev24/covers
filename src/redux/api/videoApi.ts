@@ -1,12 +1,17 @@
+import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi";
+
+const VIDEO_URL = "/get-all-videos";
 
 const videoApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     Videos: build.query({
-      query: (data) => ({
-        url: ``,
+      query: (arg: Record<string, any>) => ({
+        url: VIDEO_URL,
         method: "GET",
+        params: arg,
       }),
+      providesTags: [tagTypes.video],
     }),
   }),
   overrideExisting: false,
