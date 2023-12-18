@@ -13,8 +13,15 @@ const videoApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.video],
     }),
+    Video: build.query({
+      query: (id: string) => ({
+        url: `/video-detail-by-id?id=${id}`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.video],
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useVideosQuery } = videoApi;
+export const { useVideosQuery, useVideoQuery } = videoApi;

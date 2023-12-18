@@ -22,7 +22,7 @@ export default function ArtistCard({
       key={key}
       className="mt-2 md:flex text-left border-2 p-2 border-gray-500 rounded-xl"
     >
-      <div className="md:w-1/3 md:mr-4">
+      <div className="md:w-2/3 md:mr-4">
         <Image
           src={url}
           alt={altTag}

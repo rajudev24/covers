@@ -2,13 +2,17 @@ import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Space } from "antd";
 import { useState } from "react";
 import { CustomPagination } from "../../../Shared/CustomPagination";
+import { useArtistsQuery } from "../../../redux/api/artistApi";
 
 export default function MoreArtists() {
-  const [current, setCurrent] = useState<number>(1);
-
+  const query: Record<string, any> = {};
+  const [page, setPage] = useState<number>(1);
+  const [size, setSize] = useState<number>(5);
+  query["pageNo"] = page;
+  query["itemPerPage"] = size;
+  const { data, isLoading } = useArtistsQuery({ ...query });
   const onChange = (page: number) => {
-    console.log(page);
-    setCurrent(page);
+    setPage(page);
   };
 
   return (
@@ -19,27 +23,30 @@ export default function MoreArtists() {
         </h1>
 
         <CustomPagination
-          current={current}
+          current={page}
           onChange={onChange}
           total={40}
           isRedBackground={false}
         />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mt-4 gap-x-4 md:gap-x-8 justify-items-center">
-        {Array.from({ length: 15 }).map((_, index) => (
-          <div key={index} className="mt-2 flex items-center">
-            <Space>
-              <Avatar
-                src={"./img/artist.jpg"}
-                size={64}
-                icon={<UserOutlined />}
-              />
-              <span className="font-semibold text-base md:text-lg">
-                Oliver Jons
-              </span>
-            </Space>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-4 md:gap-y-8 mt-4 gap-x-2 md:gap-x-8 justify-items-center">
+        {data &&
+          data?.data.map((artist: any, index: number) => {
+            return (
+              <div key={index} className="mt-2 flex items-center">
+                <Space>
+                  <Avatar
+                    src={artist?.small_img}
+                    size={64}
+                    icon={<UserOutlined />}
+                  />
+                  <span className="font-semibold text-base md:text-lg">
+                    {artist?.artist_name}
+                  </span>
+                </Space>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

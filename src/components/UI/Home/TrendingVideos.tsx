@@ -3,6 +3,8 @@ import { CustomPagination } from "../../../Shared/CustomPagination";
 import VideoArtistCard from "../../Core/VideoArtistCard";
 import useMobileDetection from "../../../utils/phoneSizeDetect";
 import { useVideosQuery } from "../../../redux/api/videoApi";
+import Link from "next/link";
+import Loading from "../../Loading/Loading";
 
 export default function TrendingVideos() {
   const isMobile = useMobileDetection();
@@ -40,24 +42,30 @@ export default function TrendingVideos() {
         )}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-4 md:mx-8 mt-6 gap-6 lg:gap-6 justify-items-center max-sm:gap-2">
-        {data &&
-          data.data?.map((video: any, index: number) => {
-            let artistName = JSON.parse(video?.artist);
-            const truncatedTitle = video?.title?.slice(0, 35);
-            return (
-              <VideoArtistCard
-                key={index}
-                url={video?.standard_img}
-                width={250}
-                height={250}
-                categoryTitle={truncatedTitle}
-                artistName={artistName?.artist_name}
-                altTag={"Artist image"}
-              />
-            );
-          })}
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mx-4 md:mx-8 mt-6 gap-6 lg:gap-6 justify-items-center max-sm:gap-2">
+          {data &&
+            data.data?.map((video: any, index: number) => {
+              let artistName = JSON.parse(video?.artist);
+              const truncatedTitle = video?.title?.slice(0, 35);
+              return (
+                <Link href={video?.slug} key={index}>
+                  <VideoArtistCard
+                    key={index}
+                    url={video?.standard_img}
+                    width={250}
+                    height={250}
+                    categoryTitle={truncatedTitle}
+                    artistName={artistName?.artist_name}
+                    altTag={"Artist image"}
+                  />
+                </Link>
+              );
+            })}
+        </div>
+      )}
 
       <div className="text-center mt-4">
         {isMobile ? (
